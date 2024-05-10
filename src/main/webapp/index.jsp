@@ -1,4 +1,7 @@
 <html>
+<head>
+<%@include file="css/css.jsp" %>
+</head>
 <body>
 <h2>Hello World!</h2>
 </body>
