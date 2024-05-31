@@ -62,7 +62,7 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">liste impression</h4>
+        						  <h4 class="box-title">liste des Ensignentes</h4>
         						</div>
         						<!-- /.box-header -->
 
@@ -70,20 +70,26 @@
 
                                 					<div class="card">
                                 						<div class="card-header">
-                                							<h5 class="card-title">Striped Rows</h5>
+                                							<h5 class="card-title">Ensignentes</h5>
 
                                 						</div>
                                 						<div class="card-body">
                                 							<table class="table table-striped">
                                 								<thead>
                                 									<tr>
-                                										<th style="width:40%;">Name</th>
-                                										<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                										<th style="width:20%;">nom</th>
+                                										<th  style="width:20%">prenom</th>
+                                										<th style="width:20%;">email</th>
+                                										<th style="width:20%;">mode de passe</th>
+                                										<th class="d-none d-md-table-cell" style="width:20%;">Date de naissance</th>
                                 										<th style="width:15%;">Actions</th>
                                 									</tr>
                                 								</thead>
                                 								<tbody>
                                 									<tr>
+                                									<td>Carl Jenkins</td>
+                                                                     <td>Carl Jenkins</td>
+                                                                      <td>Carl Jenkins</td>
                                 										<td>Ashley Briggs</td>
                                 										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
                                 										<td class="table-action min-w-100">
@@ -93,6 +99,9 @@
                                 									</tr>
                                 									<tr>
                                 										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
                                 										<td class="d-none d-md-table-cell text-fade">May 15, 1948</td>
                                 										<td class="table-action">
                                 											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
@@ -101,6 +110,10 @@
                                 									</tr>
                                 									<tr>
                                 										<td>Bertha Martin</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+
                                 										<td class="d-none d-md-table-cell text-fade">Sep 14, 1965</td>
                                 										<td class="table-action">
                                 											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
@@ -109,6 +122,9 @@
                                 									</tr>
                                 									<tr>
                                 										<td>Stacie Hall</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
                                 										<td class="d-none d-md-table-cell text-fade">Apr 2, 1971</td>
                                 										<td class="table-action">
                                 											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
@@ -117,6 +133,9 @@
                                 									</tr>
                                 									<tr>
                                 										<td>Amanda Jones</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
                                 										<td class="d-none d-md-table-cell text-fade">Oct 12, 1966</td>
                                 										<td class="table-action">
                                 											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>

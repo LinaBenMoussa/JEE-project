@@ -175,20 +175,27 @@
  				</li>
 
  				<li >
- 				  	  <a href="../admin/Add_Group.jsp"><i data-feather="edit"></i>
+ 				  	  <a href="../admin/Add_Group.jsp">
+ 				  	  <i data-feather="edit"></i>
  					<span>Ajouter Group</span>
 
  				  </a>
  				</li>
-                <li class="treeview">
+                <li >
  				  <a href="../admin/Add_Ensignent.jsp">
  					<i data-feather="edit"></i>
  					<span>Ajouter Ensignent</span>
- 					<span class="pull-right-container">
- 					  <i class="fa fa-angle-right pull-right"></i>
- 					</span>
+
  				  </a>
  				</li>
+
+ 	  <li >
+     				  <a href="../admin/Add_Agent.jsp">
+     					<i data-feather="edit"></i>
+     					<span>Ajouter Agent</span>
+
+     				  </a>
+     				</li>
  				<li >
                  				    <a href="../admin/Add_Matiere.jsp">
                  					<i data-feather="edit"></i>
@@ -218,6 +225,16 @@
                  				  </a>
 
                  				</li>
+                 					<li >
+                                                 				  <a href="../admin/List_Agent.jsp">
+                                                 					<i data-feather="grid"></i>
+                                                 					<span>Liste Agent</span>
+                                                 					<span class="pull-right-container">
+                                                 					  <i class="fa fa-angle-right pull-right"></i>
+                                                 					</span>
+                                                 				  </a>
+
+                                                 				</li>
                  					<li >
                                  				  <a href="../admin/list_Matiere.jsp">
                                  					<i data-feather="grid"></i>

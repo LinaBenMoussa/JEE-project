@@ -62,58 +62,24 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">demende impression</h4>
+        						  <h4 class="box-title">Ajouter Matiere</h4>
         						</div>
         						<!-- /.box-header -->
         						<form class="form">
         							<div class="box-body">
 
-        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Impression</h4>
+        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> matiere</h4>
         								<hr class="my-15">
 
         								<div class="row">
-        								  <div class="col-md-6">
-        									<div class="form-group">
-        									  <label class="form-label">Select le groups</label>
-        									  <select class="form-select">
-        										<option>Interested in</option>
-        										<option>design</option>
-        										<option>development</option>
-        										<option>illustration</option>
-        										<option>branding</option>
-        										<option>video</option>
-        									  </select>
-        									</div>
-        								  </div>
-        								  <div class="col-md-6">
-        									<div class="form-group">
-        									  <label class="form-label">Select le matiere</label>
-        									  <select class="form-select">
-        										<option>Budget</option>
-        										<option>less than 5000$</option>
-        										<option>5000$ - 10000$</option>
-        										<option>10000$ - 20000$</option>
-        										<option>more than 20000$</option>
-        									  </select>
-        									</div>
-        								  </div>
-        								</div>
+
+
         								<div class="form-group">
-                                             <label class="form-label">number copier</label>
+                                             <label class="form-label">nom de matiere</label>
                                              <input type="text" class="form-control">
                                         </div>
-        								<div class="form-group">
-        								  <label class="form-label">Select document</label>
-        								  <label class="file">
-        									<input type="file" id="file">
-        								  </label>
-        								</div>
-        								<div class="form-group row">
-                                            <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date and time</label>
-                                            <div class="col-sm-10">
-                                            <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                                            </div>
-                                            </div>
+
+
         								<div class="form-group">
         								  <label class="form-label">Description</label>
         								  <textarea rows="5" class="form-control"></textarea>

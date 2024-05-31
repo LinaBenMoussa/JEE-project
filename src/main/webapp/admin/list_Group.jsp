@@ -62,7 +62,7 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">liste impression</h4>
+        						  <h4 class="box-title">liste des Groups</h4>
         						</div>
         						<!-- /.box-header -->
 
@@ -70,21 +70,21 @@
 
                                 					<div class="card">
                                 						<div class="card-header">
-                                							<h5 class="card-title">Striped Rows</h5>
+                                							<h5 class="card-title">Groups</h5>
 
                                 						</div>
                                 						<div class="card-body">
                                 							<table class="table table-striped">
                                 								<thead>
                                 									<tr>
-                                										<th style="width:40%;">Name</th>
-                                										<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                										<th style="width:40%;">Titre</th>
+                                										<th class="d-none d-md-table-cell" style="width:25%">number Etudant</th>
                                 										<th style="width:15%;">Actions</th>
                                 									</tr>
                                 								</thead>
                                 								<tbody>
                                 									<tr>
-                                										<td>Ashley Briggs</td>
+                                										<td>number Etudant</td>
                                 										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
                                 										<td class="table-action min-w-100">
                                 											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>

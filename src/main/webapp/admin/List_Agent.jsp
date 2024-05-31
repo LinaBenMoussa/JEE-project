@@ -62,58 +62,94 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">Ajouter Ensignent</h4>
+        						  <h4 class="box-title">liste des Agent</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form class="form">
-        							<div class="box-body">
-
-        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Ensignent</h4>
-        								<hr class="my-15">
 
 
-        								<div class="form-group">
-                                             <label class="form-label">nom</label>
-                                             <input type="text" class="form-control">
-                                        </div>
-<div class="form-group">
-                                             <label class="form-label">prenom</label>
-                                             <input type="text" class="form-control">
-                                        </div>
- <div class="form-group">
-                                              <label class="form-label">email</label>
-                                              <input type="text" class="form-control">
-                                         </div>
- <div class="form-group">
-                                              <label class="form-label">mote de passe</label>
-                                              <input type="text" class="form-control">
-                                         </div>
 
-        								<div class="form-group row">
-                                            <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
-                                            <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
-                                            </div>
-                                            </div>
+                                					<div class="card">
+                                						<div class="card-header">
+                                							<h5 class="card-title">Agent</h5>
 
-        							</div>
-        							<!-- /.box-body -->
-        							<div class="box-footer">
-        								<button type="button" class="btn btn-primary-light me-1">
-        								  <i class="ti-trash"></i> Cancel
-        								</button>
-        								<button type="submit" class="btn btn-primary">
-        								  <i class="ti-save-alt"></i> Save
-        								</button>
-        							</div>
-        						</form>
+                                						</div>
+                                						<div class="card-body">
+                                							<table class="table table-striped">
+                                								<thead>
+                                									<tr>
+                                										<th style="width:20%;">nom</th>
+                                										<th  style="width:20%">prenom</th>
+                                										<th style="width:20%;">email</th>
+                                										<th style="width:20%;">mode de passe</th>
+                                										<th class="d-none d-md-table-cell" style="width:20%;">Date de naissance</th>
+                                										<th style="width:15%;">Actions</th>
+                                									</tr>
+                                								</thead>
+                                								<tbody>
+                                									<tr>
+                                									<td>Carl Jenkins</td>
+                                                                     <td>Carl Jenkins</td>
+                                                                      <td>Carl Jenkins</td>
+                                										<td>Ashley Briggs</td>
+                                										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
+                                										<td class="table-action min-w-100">
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
+                                										</td>
+                                									</tr>
+                                									<tr>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td class="d-none d-md-table-cell text-fade">May 15, 1948</td>
+                                										<td class="table-action">
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
+                                										</td>
+                                									</tr>
+                                									<tr>
+                                										<td>Bertha Martin</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+
+                                										<td class="d-none d-md-table-cell text-fade">Sep 14, 1965</td>
+                                										<td class="table-action">
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
+                                										</td>
+                                									</tr>
+                                									<tr>
+                                										<td>Stacie Hall</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td class="d-none d-md-table-cell text-fade">Apr 2, 1971</td>
+                                										<td class="table-action">
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
+                                										</td>
+                                									</tr>
+                                									<tr>
+                                										<td>Amanda Jones</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td>Carl Jenkins</td>
+                                										<td class="d-none d-md-table-cell text-fade">Oct 12, 1966</td>
+                                										<td class="table-action">
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
+                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
+                                										</td>
+                                									</tr>
+                                								</tbody>
+                                							</table>
+
+                                					</div>
+                                				</div>
         					  </div>
         					  <!-- /.box -->
         				</div>
-
-
-
-
 
         			</div>
         			<!--/.<!-- (right) -->

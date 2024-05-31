@@ -62,7 +62,7 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">liste impression</h4>
+        						  <h4 class="box-title">liste de matiere</h4>
         						</div>
         						<!-- /.box-header -->
 
@@ -70,15 +70,15 @@
 
                                 					<div class="card">
                                 						<div class="card-header">
-                                							<h5 class="card-title">Striped Rows</h5>
+                                							<h5 class="card-title">matiere</h5>
 
                                 						</div>
                                 						<div class="card-body">
                                 							<table class="table table-striped">
                                 								<thead>
                                 									<tr>
-                                										<th style="width:40%;">Name</th>
-                                										<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
+                                										<th style="width:20%;">nom</th>
+                                										<th  style="width:45%">Description</th>
                                 										<th style="width:15%;">Actions</th>
                                 									</tr>
                                 								</thead>
