@@ -65,7 +65,7 @@
         						  <h4 class="box-title">Ajouter Ensignent</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form class="form">
+        						<form method="post" action="../addEnseignant" class="form">
         							<div class="box-body">
 
         								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Ensignent</h4>
@@ -74,25 +74,25 @@
 
         								<div class="form-group">
                                              <label class="form-label">nom</label>
-                                             <input type="text" class="form-control">
+                                             <input name="nom" type="text" class="form-control">
                                         </div>
 <div class="form-group">
                                              <label class="form-label">prenom</label>
-                                             <input type="text" class="form-control">
+                                             <input name="prenom" type="text" class="form-control">
                                         </div>
  <div class="form-group">
                                               <label class="form-label">email</label>
-                                              <input type="text" class="form-control">
+                                              <input name="email" type="text" class="form-control">
                                          </div>
  <div class="form-group">
                                               <label class="form-label">mote de passe</label>
-                                              <input type="text" class="form-control">
+                                              <input name="password" type="text" class="form-control">
                                          </div>
 
         								<div class="form-group row">
                                             <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
                                             <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
+                                            <input name="date" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
                                             </div>
                                             </div>
 
