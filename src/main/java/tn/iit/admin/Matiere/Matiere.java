@@ -1,4 +1,4 @@
-package tn.iit.admin;
+package tn.iit.admin.Matiere;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,6 +14,7 @@ import java.sql.SQLException;
 
 @WebServlet("/Add_Matiere")
 public class Matiere extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nom = req.getParameter("nom");

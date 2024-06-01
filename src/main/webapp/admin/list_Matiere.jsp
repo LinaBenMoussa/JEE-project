@@ -1,3 +1,4 @@
+<%@ page import="tn.iit.model.Matiere" %> <!-- Assurez-vous que le package est correct -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,8 @@
    	<div id="loader"></div>
 
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
 
 
  <%@include file="layout/header.jsp" %>
@@ -83,47 +86,27 @@
                                 									</tr>
                                 								</thead>
                                 								<tbody>
-                                									<tr>
-                                										<td>Ashley Briggs</td>
-                                										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
-                                										<td class="table-action min-w-100">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Carl Jenkins</td>
-                                										<td class="d-none d-md-table-cell text-fade">May 15, 1948</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Bertha Martin</td>
-                                										<td class="d-none d-md-table-cell text-fade">Sep 14, 1965</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Stacie Hall</td>
-                                										<td class="d-none d-md-table-cell text-fade">Apr 2, 1971</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Amanda Jones</td>
-                                										<td class="d-none d-md-table-cell text-fade">Oct 12, 1966</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                								</tbody>
+
+                                								<%
+                                                                            List<Matiere> listMatiere = (List<Matiere>) getServletContext().getAttribute("listMatiere");
+                                                                            if (listMatiere != null) {
+                                                                                for (Matiere matiere : listMatiere) {
+                                                                        %>
+                                                                        <tr>
+                                                                            <td><%= matiere.getId() %></td>
+                                                                            <td><%= matiere.getNom() %></td>
+                                                                            <td><%= matiere.getDescription() %></td>
+                                                                            <td>
+                                                                                <a href="../admin/Edit_Matiere.jsp?id=<%= matiere.getId() %>">Edit</a>
+                                                                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                <a href="../delete?id=<%= matiere.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                                                             </td>
+                                                                        </tr>
+                                                                        <%
+                                                                                }
+                                                                            }
+                                                                        %>
+                                                                        </tbody>
                                 							</table>
 
                                 					</div>

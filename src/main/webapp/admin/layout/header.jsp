@@ -236,7 +236,7 @@
 
                                                  				</li>
                  					<li >
-                                 				  <a href="../admin/list_Matiere.jsp">
+                                 				  <a href="<%=request.getContextPath()%>/list">
                                  					<i data-feather="grid"></i>
                                  					<span>Liste Matiere</span>
                                  					<span class="pull-right-container">
