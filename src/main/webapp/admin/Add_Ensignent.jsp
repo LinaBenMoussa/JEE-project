@@ -16,7 +16,6 @@
       <%@include file="../css/enseignantcss.jsp" %>
 
 
-
 </head>
 
    <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
@@ -28,6 +27,8 @@
 
 
  <%@include file="layout/header.jsp" %>
+
+
      <!-- Content Wrapper. Contains page content -->
      <div class="content-wrapper" style="margin:-12px">
    	  <div class="container-full">
@@ -65,7 +66,22 @@
         						  <h4 class="box-title">Ajouter Ensignent</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form method="post" action="../addEnseignant" class="form">
+
+
+        						<form method="post" action="../Add_Enseignant" class="form">
+        						<%
+                                    String rs = request.getParameter("success");
+                                    if ("true".equals(rs)) {
+                                %>
+                                         Success
+                                <%
+                                    } else {
+                                %>
+                                        échec
+                                <%
+                                    }
+                                %>
+
         							<div class="box-body">
 
         								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Ensignent</h4>

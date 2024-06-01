@@ -5,33 +5,27 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/Add_Enseignant")
-public class Enseignant extends HttpServlet {
+@WebServlet("/Add_Group")
+public class Groupe extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String uemail = req.getParameter("email");
-        String upwd = req.getParameter("password");
         String nom = req.getParameter("nom");
-        String prenom = req.getParameter("prenom");
-        String date = req.getParameter("date");
-
-        // JDBC driver name and database URL
+        String nbre = req.getParameter("nbre");
         String JDBC_DRIVER = "com.mysql.jdbc.Driver";
         String DB_URL = "jdbc:mysql://localhost:3306/tiragebd?useSSL=false";
 
         // Database credentials
         String USER = "root";
         String PASS = "";
-
         Connection con = null;
         PreparedStatement ps = null;
-
         try {
             // Register JDBC driver
             Class.forName(JDBC_DRIVER);
@@ -40,22 +34,18 @@ public class Enseignant extends HttpServlet {
             con = DriverManager.getConnection(DB_URL, USER, PASS);
 
             // Create a prepared statement to insert data into the enseignant table
-            String sql = "INSERT INTO user (email, pw, nom, prenom, dateNaissance,role,telephone) VALUES (?, ?, ?, ?, ?,?,?)";
+            String sql = "INSERT INTO groupe (nom, nbre) VALUES (?, ?)";
             ps = con.prepareStatement(sql);
-            ps.setString(1, uemail);
-            ps.setString(2, upwd);
-            ps.setString(3, nom);
-            ps.setString(4, prenom);
-            ps.setString(5, date);
-            ps.setString(6, "0");
-            ps.setString(7, "20524652");
+
+            ps.setString(2, nbre);
+            ps.setString(1, nom);
 
             // Execute the statement
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
-                resp.sendRedirect("admin/Add_Ensignent.jsp?success=true");
+                resp.sendRedirect("admin/Add_Group.jsp?success=true");
             } else {
-                resp.sendRedirect("admin/Add_Ensignent.jsp?success=false");
+                resp.sendRedirect("admin/Add_Group.jsp?success=false");
             }
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -72,5 +62,6 @@ public class Enseignant extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }
+
     }
 }

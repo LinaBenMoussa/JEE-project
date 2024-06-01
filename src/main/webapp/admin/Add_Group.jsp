@@ -65,7 +65,18 @@
                                       <h4 class="box-title">Ajouter Group</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form class="form">
+        						<form method="post" action="../Add_Group" class="form">
+        						<%
+                                     String rs = request.getParameter("success");
+                                       if ("true".equals(rs)) { %>
+                                                                         Success
+                                                                <%
+                                                                    } else {
+                                                                %>
+                                                                        échec
+                                                                <%
+                                                                    }
+                                                                %>
         							<div class="box-body">
 
         								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Group</h4>
@@ -76,11 +87,11 @@
 
         								<div class="form-group">
                                         <label class="form-label">Titre</label>
-                                         <input type="text" class="form-control">
+                                         <input name="nom" type="text" class="form-control">
                                          </div>
         								<div class="form-group">
                                              <label class="form-label">number Etudant</label>
-                                             <input type="text" class="form-control">
+                                             <input name="nbre" type="text" class="form-control">
                                         </div>
 
 
