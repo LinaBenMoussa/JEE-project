@@ -65,7 +65,19 @@
         						  <h4 class="box-title">Ajouter Matiere</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form class="form">
+        						<form method="post" action="../Add_Matiere" class="form">
+                                        						<%
+                                                                    String rs = request.getParameter("success");
+                                                                    if ("true".equals(rs)) {
+                                                                %>
+                                                                         Success
+                                                                <%
+                                                                    } else {
+                                                                %>
+                                                                        échec
+                                                                <%
+                                                                    }
+                                                                %>
         							<div class="box-body">
 
         								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> matiere</h4>
@@ -76,13 +88,13 @@
 
         								<div class="form-group">
                                              <label class="form-label">nom de matiere</label>
-                                             <input type="text" class="form-control">
+                                             <input name="nom" type="text" class="form-control">
                                         </div>
 
 
         								<div class="form-group">
         								  <label class="form-label">Description</label>
-        								  <textarea rows="5" class="form-control"></textarea>
+        								  <textarea name="description" rows="5" class="form-control"></textarea>
         								</div>
         							</div>
         							<!-- /.box-body -->
