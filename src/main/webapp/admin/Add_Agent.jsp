@@ -65,7 +65,20 @@
         						  <h4 class="box-title">Ajouter Agent</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form class="form">
+
+        						<form method="post" action="../Add_Agent" class="form">
+                                        						<%
+                                                                    String rs = request.getParameter("success");
+                                                                    if ("true".equals(rs)) {
+                                                                %>
+                                                                         Success
+                                                                <%
+                                                                    } else {
+                                                                %>
+                                                                        échec
+                                                                <%
+                                                                    }
+                                                                %>
         							<div class="box-body">
 
         								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Agent</h4>
@@ -74,19 +87,19 @@
 
         								<div class="form-group">
                                              <label class="form-label">nom</label>
-                                             <input type="text" class="form-control">
+                                             <input name="nom" type="text" class="form-control">
                                         </div>
 <div class="form-group">
                                              <label class="form-label">prenom</label>
-                                             <input type="text" class="form-control">
+                                             <input name="prenom" type="text" class="form-control">
                                         </div>
  <div class="form-group">
                                               <label class="form-label">email</label>
-                                              <input type="text" class="form-control">
+                                              <input name="email" type="text" class="form-control">
                                          </div>
  <div class="form-group">
-                                              <label class="form-label">mote de passe</label>
-                                              <input type="text" class="form-control">
+                                              <label class="form-label">mot de passe</label>
+                                              <input name="password" type="text" class="form-control">
                                          </div>
 
         								<div class="form-group row">
