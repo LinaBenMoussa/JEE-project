@@ -105,7 +105,7 @@
         								<div class="form-group row">
                                             <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
                                             <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
+                                            <input name="date" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
                                             </div>
                                             </div>
 

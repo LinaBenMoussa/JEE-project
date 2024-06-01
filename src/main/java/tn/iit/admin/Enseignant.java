@@ -11,7 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-@WebServlet("/addEnseignant")
+@WebServlet("/Add_Enseignant")
 public class Enseignant extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -53,11 +53,9 @@ public class Enseignant extends HttpServlet {
             // Execute the statement
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("Enseignant ajouté avec succès !");
-
+                resp.sendRedirect("admin/Add_Ensignent.jsp?success=true");
             } else {
-                System.out.println("Échec de l'ajout de l'enseignant.");
-                // Vous pouvez rediriger vers une page d'échec ou faire toute autre opération nécessaire ici
+                resp.sendRedirect("admin/Add_Ensignent.jsp?success=false");
             }
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
