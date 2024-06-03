@@ -1,4 +1,4 @@
-<%@ page import="tn.iit.model.Matiere" %> <!-- Assurez-vous que le package est correct -->
+<%@ page import="tn.iit.model.Matiere" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +74,11 @@
                                 					<div class="card">
                                 						<div class="card-header">
                                 							<h5 class="card-title">matiere</h5>
+                                							<div class="container text-left">
+
+                                                            				<a href="Add_Matiere.jsp" class="btn btn-success">
+                                                            					Ajouter Matiére</a>
+                                                            			</div>
 
                                 						</div>
                                 						<div class="card-body">
@@ -93,11 +98,11 @@
                                                                                 for (Matiere matiere : listMatiere) {
                                                                         %>
                                                                         <tr>
-                                                                            <td><%= matiere.getId() %></td>
+
                                                                             <td><%= matiere.getNom() %></td>
                                                                             <td><%= matiere.getDescription() %></td>
                                                                             <td>
-                                                                                <a href="../admin/Edit_Matiere.jsp?id=<%= matiere.getId() %>">Edit</a>
+                                                                                <a href="../edit?id=<%= matiere.getId() %>">Edit</a>
                                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                                                                                 <a href="../delete?id=<%= matiere.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                                                                              </td>

@@ -65,13 +65,15 @@
         						<div class="box-header with-border">
         						   <h2>Modifier Matière</h2>
  <%
-        // Récupérer la matière à éditer à partir de la requête
-        Matiere matiere = (Matiere) request.getAttribute("matiere");
+
+         Matiere matiere = (Matiere) getServletContext().getAttribute("matiere");
+
     %>
 
         						</div>
         						<!-- /.box-header -->
-        						<form method="post" action="../Add_Matiere" class="form">
+
+        						<form method="post" action="../update" class="form">
 
         							<div class="box-body">
 
@@ -89,7 +91,7 @@
 
         								<div class="form-group">
         								  <label class="form-label">Description</label>
-        								  <textarea  name="description" value="<%= matiere.getDescription() %>" rows="5" class="form-control"></textarea>
+                                        <textarea name="description" rows="5" class="form-control"><%= matiere.getDescription() %></textarea>
         								</div>
         							</div>
         							<!-- /.box-body -->

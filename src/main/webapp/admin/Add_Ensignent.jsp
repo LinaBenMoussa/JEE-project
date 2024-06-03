@@ -68,7 +68,7 @@
         						<!-- /.box-header -->
 
 
-        						<form method="post" action="../Add_Enseignant" class="form">
+        						<form method="post" action="../user/insert?role=0" class="form">
         						<%
                                     String rs = request.getParameter("success");
                                     if ("true".equals(rs)) {
@@ -101,14 +101,18 @@
                                               <input name="email" type="text" class="form-control">
                                          </div>
  <div class="form-group">
-                                              <label class="form-label">mote de passe</label>
-                                              <input name="password" type="text" class="form-control">
+                                              <label class="form-label">mot de passe</label>
+                                              <input name="pw" type="text" class="form-control">
                                          </div>
+                                         <div class="form-group">
+                                                                                       <label class="form-label">Telephone</label>
+                                                                                       <input name="telephone" type="text" class="form-control">
+                                                                                  </div>
 
         								<div class="form-group row">
                                             <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
                                             <div class="col-sm-10">
-                                            <input name="date" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
+                                            <input name="dateNaissance" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
                                             </div>
                                             </div>
 

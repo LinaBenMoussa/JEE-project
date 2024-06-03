@@ -16,7 +16,6 @@
       <%@include file="../css/enseignantcss.jsp" %>
 
 
-
 </head>
 
    <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
@@ -28,6 +27,8 @@
 
 
  <%@include file="layout/header.jsp" %>
+
+
      <!-- Content Wrapper. Contains page content -->
      <div class="content-wrapper" style="margin:-12px">
    	  <div class="container-full">
@@ -62,26 +63,28 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">Ajouter Agent</h4>
+        						  <h4 class="box-title">Ajouter Ensignent</h4>
         						</div>
         						<!-- /.box-header -->
 
-        						<form method="post" action="../Add_Agent" class="form">
-                                        						<%
-                                                                    String rs = request.getParameter("success");
-                                                                    if ("true".equals(rs)) {
-                                                                %>
-                                                                         Success
-                                                                <%
-                                                                    } else {
-                                                                %>
-                                                                        échec
-                                                                <%
-                                                                    }
-                                                                %>
+
+        						<form method="post" action="../user/insert?role=1" class="form">
+        						<%
+                                    String rs = request.getParameter("success");
+                                    if ("true".equals(rs)) {
+                                %>
+                                         Success
+                                <%
+                                    } else {
+                                %>
+                                        échec
+                                <%
+                                    }
+                                %>
+
         							<div class="box-body">
 
-        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Agent</h4>
+        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Ensignent</h4>
         								<hr class="my-15">
 
 
@@ -99,13 +102,17 @@
                                          </div>
  <div class="form-group">
                                               <label class="form-label">mot de passe</label>
-                                              <input name="password" type="text" class="form-control">
+                                              <input name="pw" type="text" class="form-control">
                                          </div>
+                                         <div class="form-group">
+                                                                                       <label class="form-label">Telephone</label>
+                                                                                       <input name="telephone" type="text" class="form-control">
+                                                                                  </div>
 
         								<div class="form-group row">
                                             <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
                                             <div class="col-sm-10">
-                                            <input name="date" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
+                                            <input name="dateNaissance" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
                                             </div>
                                             </div>
 

@@ -205,9 +205,9 @@
 
                  				</li>
  				<li >
- 				  <a href="../admin/list_Group.jsp">
+ 				  <a href="<%=request.getContextPath()%>/groupes/list">
  					<i data-feather="grid"></i>
- 					<span>Liste Group</span>
+ 					<span>Liste Groupe</span>
  					<span class="pull-right-container">
  					  <i class="fa fa-angle-right pull-right"></i>
  					</span>
@@ -216,17 +216,16 @@
  				</li>
 
  					<li >
-                 				  <a href="../admin/list_Ensignent.jsp">
+                 				  <a href="<%=request.getContextPath()%>/user/list?role=0">
                  					<i data-feather="grid"></i>
-                 					<span>Liste Ensignent</span>
+                 					<span>List Enseignant</span>
                  					<span class="pull-right-container">
                  					  <i class="fa fa-angle-right pull-right"></i>
                  					</span>
                  				  </a>
-
                  				</li>
                  					<li >
-                                                 				  <a href="../admin/List_Agent.jsp">
+                                                 				  <a href="<%=request.getContextPath()%>/user/list?role=1">
                                                  					<i data-feather="grid"></i>
                                                  					<span>Liste Agent</span>
                                                  					<span class="pull-right-container">

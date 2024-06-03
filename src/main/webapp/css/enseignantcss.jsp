@@ -13,10 +13,8 @@
 	<link rel="stylesheet" href="../assets/enseignant/vendor_components/bootstrap/dist/css/bootstrap.css"></script>
 <!-- Vendor JS -->
 	<script src="../assets/enseignant/js/vendors.min.js"></script>
-
 	<script src="../assets/enseignant/js/pages/chat-popup.js"></script>
     <script src="../assets/enseignant/icons/feather-icons/feather.min.js"></script>
-
 	<script src="../assets/enseignant/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
 	<script src="../assets/enseignant/vendor_components/moment/min/moment.min.js"></script>
 	<script src="../assets/enseignant/vendor_components/bootstrap-daterangepicker/daterangepicker.js"></script>

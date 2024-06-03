@@ -1,8 +1,7 @@
 package tn.iit.web;
 
-
-import tn.iit.dao.MatiereDao;
-import tn.iit.model.Matiere;
+import tn.iit.dao.GroupeDao;
+import tn.iit.model.Groupe;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -13,15 +12,16 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/")
-public class MatiereServlet extends HttpServlet {
+@WebServlet("/groupes/*")
+public class GroupeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private MatiereDao matiereDao;
+    private GroupeDao groupeDao;
 
     public void init() {
-        matiereDao = new MatiereDao();
+        groupeDao = new GroupeDao();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +31,7 @@ public class MatiereServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getServletPath();
+        String action = request.getPathInfo();
 
         try {
             switch (action) {
@@ -39,19 +39,19 @@ public class MatiereServlet extends HttpServlet {
                     showNewForm(request, response);
                     break;
                 case "/insert":
-                    insertMatiere(request, response);
+                    insertGroupe(request, response);
                     break;
                 case "/delete":
-                    deleteMatiere(request, response);
+                    deleteGroupe(request, response);
                     break;
                 case "/edit":
                     showEditForm(request, response);
                     break;
                 case "/update":
-                    updateMatiere(request, response);
+                    updateGroupe(request, response);
                     break;
                 default:
-                    listMatiere(request, response);
+                    listGroupe(request, response);
                     break;
             }
         } catch (SQLException ex) {
@@ -59,53 +59,63 @@ public class MatiereServlet extends HttpServlet {
         }
     }
 
-    private void listMatiere(HttpServletRequest request, HttpServletResponse response)
+    private void listGroupe(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
-        List<Matiere> listMatiere = matiereDao.selectAllMatieres();
 
-        getServletContext().setAttribute("listMatiere", listMatiere);
-        response.sendRedirect("admin/list_Matiere.jsp");
-    }
+        List<Groupe> listGroupe = new ArrayList<>();
+        List<Integer> listId = (List<Integer>) getServletContext().getAttribute("listGroupes");
+        if(listId!=null && !listId.isEmpty()){
+            for(Integer i : listId){
+                listGroupe.add(groupeDao.selectGroupe(i));
+            }
+            for (Groupe g : listGroupe){System.out.println(g.getNom());}
+            System.out.println("yes dans if");
+        }else{
+            listGroupe = groupeDao.selectAllGroupes();
+        }
+
+        getServletContext().setAttribute("listGroupe", listGroupe);
+        response.sendRedirect("../admin/list_Group.jsp");   }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/Add_Matiere.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/Add_Group.jsp");
         dispatcher.forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        Matiere existingMatiere = matiereDao.selectMatiere(id);
+        Groupe existingGroupe = groupeDao.selectGroupe(id);
+        getServletContext().setAttribute("groupe", existingGroupe);
+        response.sendRedirect("../admin/Edit_Group.jsp");
 
-        getServletContext().setAttribute("matiere", existingMatiere);
-        response.sendRedirect("admin/Edit_Matiere.jsp");
     }
 
-    private void insertMatiere(HttpServletRequest request, HttpServletResponse response)
+    private void insertGroupe(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         String nom = request.getParameter("nom");
-        String description = request.getParameter("description");
-        Matiere newMatiere = new Matiere(nom, description);
-        matiereDao.insertMatiere(newMatiere);
+        int nbre = Integer.parseInt(request.getParameter("nbre"));
+        Groupe newGroupe = new Groupe(nom, nbre);
+        groupeDao.insertGroupe(newGroupe);
         response.sendRedirect("list");
     }
 
-    private void updateMatiere(HttpServletRequest request, HttpServletResponse response)
+    private void updateGroupe(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String nom = request.getParameter("nom");
-        String description = request.getParameter("description");
+        int nbre = Integer.parseInt(request.getParameter("nbre"));
 
-        Matiere matiere = new Matiere(id, nom, description);
-        matiereDao.updateMatiere(matiere);
+        Groupe groupe = new Groupe(id, nom, nbre);
+        groupeDao.updateGroupe(groupe);
         response.sendRedirect("list");
     }
 
-    private void deleteMatiere(HttpServletRequest request, HttpServletResponse response)
+    private void deleteGroupe(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        matiereDao.deleteMatiere(id);
+        groupeDao.deleteGroupe(id);
         response.sendRedirect("list");
     }
 }

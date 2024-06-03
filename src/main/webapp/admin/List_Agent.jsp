@@ -1,3 +1,6 @@
+<%@ page import="tn.iit.model.User" %>
+<%@ page import="java.util.List" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,16 +65,18 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">liste des Agent</h4>
+        						  <h4 class="box-title">liste des Ensignentes</h4>
         						</div>
         						<!-- /.box-header -->
 
-
-
                                 					<div class="card">
                                 						<div class="card-header">
-                                							<h5 class="card-title">Agent</h5>
+                                							<h5 class="card-title">Liste des Agents</h5>
+<div class="container text-left">
 
+                                                            				<a href="Add_Agent.jsp" class="btn btn-success">
+                                                            					Ajouter Agent</a>
+                                                            			</div>
                                 						</div>
                                 						<div class="card-body">
                                 							<table class="table table-striped">
@@ -80,69 +85,36 @@
                                 										<th style="width:20%;">nom</th>
                                 										<th  style="width:20%">prenom</th>
                                 										<th style="width:20%;">email</th>
-                                										<th style="width:20%;">mode de passe</th>
+                                										<th style="width:20%;">mot de passe</th>
                                 										<th class="d-none d-md-table-cell" style="width:20%;">Date de naissance</th>
+                                										<th style="width:20%;">Telephone</th>
+
                                 										<th style="width:15%;">Actions</th>
                                 									</tr>
                                 								</thead>
                                 								<tbody>
-                                									<tr>
-                                									<td>Carl Jenkins</td>
-                                                                     <td>Carl Jenkins</td>
-                                                                      <td>Carl Jenkins</td>
-                                										<td>Ashley Briggs</td>
-                                										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
-                                										<td class="table-action min-w-100">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td class="d-none d-md-table-cell text-fade">May 15, 1948</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Bertha Martin</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
+                                									<% List<User> listusers = (List<User>) getServletContext().getAttribute("listUser");
+                                                                if (listusers != null) {
+                                                                                                                                                    for (User enseignant : listusers) { %>
+                                                                                                                                                                                                            <tr>
+       <td><%= enseignant.getNom() %></td>
+                                                                                                                                                                                                                <td><%= enseignant.getPrenom() %></td>
 
-                                										<td class="d-none d-md-table-cell text-fade">Sep 14, 1965</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Stacie Hall</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td class="d-none d-md-table-cell text-fade">Apr 2, 1971</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Amanda Jones</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td>Carl Jenkins</td>
-                                										<td class="d-none d-md-table-cell text-fade">Oct 12, 1966</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                								</tbody>
+                                                                                                                                                                                                                <td><%= enseignant.getEmail() %></td>
+                                                                                                                                                                                                                <td><%= enseignant.getPw() %></td>
+                                                                                                                                                                                                                <td><%= enseignant.getDateNaissance() %></td>
+                                                                                                                                                                                                                <td><%= enseignant.getTelephone() %></td>
+                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                    <a href="../user/edit?role=1&id=<%= enseignant.getId() %>">Edit</a>
+                                                                                                                                                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                                                                                                                                                    <a href="../user/delete?role=1&id=<%= enseignant.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                                                                                                                                                                                                 </td>
+                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                            <%
+                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                }
+                                                                                                                                                                                                            %>
+                                                                                                								</tbody>
                                 							</table>
 
                                 					</div>

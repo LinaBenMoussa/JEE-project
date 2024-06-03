@@ -1,3 +1,4 @@
+<%@ page import="tn.iit.model.User" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,65 +63,64 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">Ajouter Agent</h4>
+        						  <h4 class="box-title">demende impression</h4>
         						</div>
         						<!-- /.box-header -->
+        						 <%
 
-        						<form method="post" action="../Edit_Agent" class="form">
-                                        						<%
-                                                                    String rs = request.getParameter("success");
-                                                                    if ("true".equals(rs)) {
-                                                                %>
-                                                                         Success
-                                                                <%
-                                                                    } else {
-                                                                %>
-                                                                        échec
-                                                                <%
-                                                                    }
-                                                                %>
-        							<div class="box-body">
+                                                                         User user = (User) getServletContext().getAttribute("user");
 
-        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Agent</h4>
-        								<hr class="my-15">
+                                                                    %>
+                                        						<form class="form" action="../user/update?role=1" method="post">
+
+                                        							<div class="box-body">
+
+                                                                            								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> user</h4>
+                                                                            								<hr class="my-15">
+
+                                                                            								<div class="row">
+
+                                                                                                        <input type="hidden" name="id" value="<%= user.getId() %>">
+                                                                            								<div class="form-group">
+                                                                                                                 <label class="form-label">nom</label>
+                                                                                                                 <input name="nom" value="<%= user.getNom() %>" type="text" class="form-control">
+                                                                                                            </div>
+                                                                                                            <div class="form-group">
+                                                                                                             <label class="form-label">Prenom</label>
+                                                                                                            <input name="prenom" value="<%= user.getPrenom() %>" type="text" class="form-control">
+                                                                                                              </div>
+                                                                                                              <div class="form-group">
+                                                                                                              <label class="form-label">Email</label>
+                                                                                                                  <input name="email" value="<%= user.getEmail() %>" type="text" class="form-control">
+                                                                                                              </div>
+                                                                                                                <div class="form-group">
+                                                                                                               <label class="form-label">Mot de passe</label>
+                                                                                                                   <input name="pw" value="<%= user.getPw() %>" type="text" class="form-control">
+                                                                                                               </div>
+                                                                                                               </div>
+                                                                                                                                                                                                                               <div class="form-group">
+                                                                                                                                                                                                                              <label class="form-label">Telephone</label>
+                                                                                                                                                                                                                                  <input name="telephone" value="<%= user.getTelephone() %>" type="text" class="form-control">
+                                                                                                                                                                                                                              </div>
+                                                                                                               <div class="form-group row">
+                                                                                                                                                           <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
+                                                                                                                                                           <div class="col-sm-10">
+                                                                                                                                                           <input name="dateNaissance" class="form-control" type="date" value="<%= user.getDateNaissance() %>" id="example-datetime-local-input">
+                                                                                                                                                           </div>
+                                                                                                                                                           </div>
 
 
-        								<div class="form-group">
-                                             <label class="form-label">nom</label>
-                                             <input name="nom" type="text" class="form-control">
-                                        </div>
-<div class="form-group">
-                                             <label class="form-label">prenom</label>
-                                             <input name="prenom" type="text" class="form-control">
-                                        </div>
- <div class="form-group">
-                                              <label class="form-label">email</label>
-                                              <input name="email" type="text" class="form-control">
-                                         </div>
- <div class="form-group">
-                                              <label class="form-label">mot de passe</label>
-                                              <input name="password" type="text" class="form-control">
-                                         </div>
-
-        								<div class="form-group row">
-                                            <label for="example-datetime-local-input" class="col-sm-2 col-form-label">Date de naissance</label>
-                                            <div class="col-sm-10">
-                                            <input name="date" class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
-                                            </div>
-                                            </div>
-
-        							</div>
-        							<!-- /.box-body -->
-        							<div class="box-footer">
-        								<button type="button" class="btn btn-primary-light me-1">
-        								  <i class="ti-trash"></i> Cancel
-        								</button>
-        								<button type="submit" class="btn btn-primary">
-        								  <i class="ti-save-alt"></i> Save
-        								</button>
-        							</div>
-        						</form>
-        					  </div>
+                                                                            							</div>
+                                                                            							<div class="box-footer">
+                                                                                                                								<button type="button" class="btn btn-primary-light me-1">
+                                                                                                                								  <i class="ti-trash"></i> Cancel
+                                                                                                                								</button>
+                                                                                                                								<button type="submit" class="btn btn-primary">
+                                                                                                                								  <i class="ti-save-alt"></i> Save
+                                                                                                                								</button>
+                                                                                                                							</div>
+                                                                                                                						</form>
+                                                                                                                					  </div>
         					  <!-- /.box -->
         				</div>
 

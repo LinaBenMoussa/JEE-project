@@ -1,3 +1,5 @@
+<%@ page import="tn.iit.model.Groupe" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +73,13 @@
                                 					<div class="card">
                                 						<div class="card-header">
                                 							<h5 class="card-title">Groups</h5>
+<div class="container text-left">
 
+                                                            				<a href="Add_Group.jsp" class="btn btn-success">
+                                                            					Ajouter Groupe</a>
+                                                            			</div>
+
+                                						</div>
                                 						</div>
                                 						<div class="card-body">
                                 							<table class="table table-striped">
@@ -83,46 +91,23 @@
                                 									</tr>
                                 								</thead>
                                 								<tbody>
-                                									<tr>
-                                										<td>number Etudant</td>
-                                										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
-                                										<td class="table-action min-w-100">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Carl Jenkins</td>
-                                										<td class="d-none d-md-table-cell text-fade">May 15, 1948</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Bertha Martin</td>
-                                										<td class="d-none d-md-table-cell text-fade">Sep 14, 1965</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Stacie Hall</td>
-                                										<td class="d-none d-md-table-cell text-fade">Apr 2, 1971</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Amanda Jones</td>
-                                										<td class="d-none d-md-table-cell text-fade">Oct 12, 1966</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
+                                									<% List<Groupe> listGroupe = (List<Groupe>) getServletContext().getAttribute("listGroupe");
+                                                                      if (listGroupe != null) {
+                                                                                    for (Groupe groupe : listGroupe) { %>
+                                                                                                                                            <tr>
+
+                                                                                                                                                <td><%= groupe.getNom() %></td>
+                                                                                                                                                <td><%= groupe.getNbre() %></td>
+                                                                                                                                                <td>
+                                                                                                                                                    <a href="../groupes/edit?id=<%= groupe.getId() %>">Edit</a>
+                                                                                                                                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                                                                                    <a href="../groupes/delete?id=<%= groupe.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                                                                                                                                 </td>
+                                                                                                                                            </tr>
+                                                                                                                                            <%
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            %>
                                 								</tbody>
                                 							</table>
 

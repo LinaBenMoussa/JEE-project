@@ -65,7 +65,7 @@
                                       <h4 class="box-title">Ajouter Group</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form method="post" action="../Add_Group" class="form">
+        						<form method="post" action="../groupes/insert"" class="form">
         						<%
                                      String rs = request.getParameter("success");
                                        if ("true".equals(rs)) { %>

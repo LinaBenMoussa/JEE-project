@@ -66,18 +66,7 @@
         						</div>
         						<!-- /.box-header -->
         						<form method="post" action="../Add_Matiere" class="form">
-                                        						<%
-                                                                    String rs = request.getParameter("success");
-                                                                    if ("true".equals(rs)) {
-                                                                %>
-                                                                         Success
-                                                                <%
-                                                                    } else {
-                                                                %>
-                                                                        échec
-                                                                <%
-                                                                    }
-                                                                %>
+
         							<div class="box-body">
 
         								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> matiere</h4>

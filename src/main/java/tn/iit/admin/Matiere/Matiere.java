@@ -45,7 +45,7 @@ public class Matiere extends HttpServlet {
             // Execute the statement
             int rowsInserted = ps.executeUpdate();
             if (rowsInserted > 0) {
-                resp.sendRedirect("admin/Add_Matiere.jsp?success=true");
+                resp.sendRedirect(req.getContextPath() + "/list");
             } else {
                 resp.sendRedirect("admin/Add_Matiere.jsp?success=false");
             }
