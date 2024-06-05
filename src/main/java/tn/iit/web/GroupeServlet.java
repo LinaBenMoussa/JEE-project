@@ -52,6 +52,9 @@ public class GroupeServlet extends HttpServlet {
                 case "/update":
                     updateGroupe(request, response);
                     break;
+                case "/list2":
+                    listGroupe2(request, response);
+                    break;
                 default:
                     listGroupe(request, response);
                     break;
@@ -67,11 +70,10 @@ public class GroupeServlet extends HttpServlet {
         List<Groupe> listGroupe = new ArrayList<>();
         List<Integer> listId = (List<Integer>) getServletContext().getAttribute("listGroupes");
 
-        if (listId != null) {  // Vérification de null
+        if (listId != null) {
             for (Integer g : listId) {
                 System.out.println(g);
             }
-
             if (!listId.isEmpty()) {
                 for (Integer i : listId) {
                     Groupe groupe = groupeDao.selectGroupe(i);
@@ -84,18 +86,20 @@ public class GroupeServlet extends HttpServlet {
                 for (Groupe g : listGroupe) {
                     System.out.println(g.getNom());
                 }
-            } else {
-                listGroupe = groupeDao.selectAllGroupes();
-
+                getServletContext().setAttribute("listGroupe", listGroupe);
+                response.sendRedirect("../admin/list_Group.jsp?id=" + id);
+            }else{
+                getServletContext().setAttribute("listGroupe", listGroupe);
+                response.sendRedirect("../admin/list_Group.jsp?id=" + id);
             }
         } else {
 
             System.out.println("listId est null");
             listGroupe = groupeDao.selectAllGroupes();
-
+            getServletContext().setAttribute("listGroupe", listGroupe);
+            response.sendRedirect("../admin/list_Group.jsp?id=" + id);
         }
-        getServletContext().setAttribute("listGroupe", listGroupe);
-        response.sendRedirect("../admin/list_Group.jsp?id=" + id);
+
     }
 
 
@@ -120,23 +124,26 @@ public class GroupeServlet extends HttpServlet {
         int nbre = Integer.parseInt(request.getParameter("nbre"));
         int id = 0;
         String idParam = request.getParameter("id");
-        System.out.println("l'id ="+idParam);
+        System.out.println("l'id = " + idParam);
         if (idParam != null && !idParam.equals("null")) {
             id = Integer.parseInt(idParam);
         }
 
         Groupe newGroupe = new Groupe(nom, nbre);
-        groupeDao.insertGroupe(newGroupe);
+        groupeDao.insertGroupe(newGroupe);  // L'ID généré est maintenant dans newGroupe
+        System.out.println("groupeId = " + newGroupe.getId());
 
-        if (id != 0 && newGroupe.getId() !=0) {
+        if (id != 0 && newGroupe.getId() != 0) {
             EnseignantGroupe enseignantGroupe = new EnseignantGroupe(newGroupe.getId(), id);
-            System.out.println("groupeId"+newGroupe.getId());
+            System.out.println("groupeId = " + newGroupe.getId());
+            System.out.println("id:"+id);
+            System.out.println("objet"+enseignantGroupe.getIdgroupe());
             EG.insertEnseignantGroupe(enseignantGroupe);
-        }
-        response.sendRedirect("list");
+            response.sendRedirect("../EG/list?id="+id);
+
+        }else{
+        response.sendRedirect("list");}
     }
-
-
 
     private void updateGroupe(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
@@ -153,5 +160,14 @@ public class GroupeServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         groupeDao.deleteGroupe(id);
         response.sendRedirect("list");
+    }
+
+    private void listGroupe2(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        List<Groupe> listGroupe = new ArrayList<>();
+
+            listGroupe = groupeDao.selectAllGroupes();
+            getServletContext().setAttribute("listGroupe", listGroupe);
+            response.sendRedirect("../admin/list_groupe2.jsp");
     }
 }

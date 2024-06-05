@@ -30,15 +30,29 @@ public class GroupeDao {
     }
 
     public void insertGroupe(Groupe groupe) throws SQLException {
+        String INSERT_GROUPE_SQL = "INSERT INTO groupe (nom, nbre) VALUES (?, ?);";
+
         try (Connection connection = getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_GROUPE_SQL)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_GROUPE_SQL, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, groupe.getNom());
             preparedStatement.setInt(2, groupe.getNbre());
-            preparedStatement.executeUpdate();
+            int affectedRows = preparedStatement.executeUpdate();
+
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        groupe.setId(generatedKeys.getInt(1));  // Mise à jour de l'objet Groupe avec l'ID généré
+                    } else {
+                        throw new SQLException("Creating groupe failed, no ID obtained.");
+                    }
+                }
+            }
         } catch (SQLException e) {
             printSQLException(e);
+            throw new SQLException(e);  // Rejeter l'exception pour la gestion en amont
         }
     }
+
 
     public Groupe selectGroupe(int id) {
         Groupe groupe = null;

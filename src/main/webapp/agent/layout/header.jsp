@@ -177,6 +177,9 @@
     				<li>
     				  <a href="../agent/listImpression.jsp"><i data-feather="printer"></i><span>Print list</span></a>
     				</li>
+    				<form action="<%=request.getContextPath()%>/logout" method="post">
+                                                                        <button type="submit" class="btn btn-danger">Logout</button>
+                                                                    </form>
 
 
 

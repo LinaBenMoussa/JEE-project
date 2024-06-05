@@ -59,13 +59,12 @@ public class EnseignantGroupeServlet extends HttpServlet {  // Hérite de HttpSe
     private void listGroupes(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
+        System.out.println("id dans EG"+id);
         List<Integer> listGroupes = EG.getGroupesByIdEnseignant(id);
-        for(Integer i: listGroupes){System.out.println(i);}
+        for(Integer i: listGroupes){System.out.println("i"+i);}
 
         request.getServletContext().setAttribute("idEnseignant",id);
         request.getServletContext().setAttribute("listGroupes", listGroupes);
-
-
         response.sendRedirect("../groupes/list");
 
     }

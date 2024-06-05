@@ -205,7 +205,7 @@
 
                  				</li>
  				<li >
- 				  <a href="../groupes/list?id=0">
+ 				  <a href="../groupes/list2">
  					<i data-feather="grid"></i>
  					<span>Liste Groupe</span>
  					<span class="pull-right-container">
@@ -244,6 +244,10 @@
                                  				  </a>
 
                                  				</li>
+                                 				<form action="<%=request.getContextPath()%>/logout" method="post">
+                                                    <button type="submit" class="btn btn-danger">Logout</button>
+                                                </form>
+
 
 
  			  </ul>
