@@ -205,7 +205,7 @@
 
                  				</li>
  				<li >
- 				  <a href="<%=request.getContextPath()%>/groupes/list">
+ 				  <a href="../groupes/list?id=0">
  					<i data-feather="grid"></i>
  					<span>Liste Groupe</span>
  					<span class="pull-right-container">
@@ -235,9 +235,9 @@
 
                                                  				</li>
                  					<li >
-                                 				  <a href="<%=request.getContextPath()%>/list">
+                                 				  <a href="<%=request.getContextPath()%>/matiere/list">
                                  					<i data-feather="grid"></i>
-                                 					<span>Liste Matiere</span>
+                                 					<span>List Matiere</span>
                                  					<span class="pull-right-container">
                                  					  <i class="fa fa-angle-right pull-right"></i>
                                  					</span>

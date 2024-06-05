@@ -73,7 +73,7 @@
         						</div>
         						<!-- /.box-header -->
 
-        						<form method="post" action="../update" class="form">
+        						<form method="post" action="../matiere/update" class="form">
 
         							<div class="box-body">
 

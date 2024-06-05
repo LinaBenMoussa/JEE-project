@@ -13,7 +13,7 @@ public class GroupeDao {
     private String jdbcUsername = "root";
     private String jdbcPassword = "";
     private static final String INSERT_GROUPE_SQL = "INSERT INTO groupe (nom, nbre) VALUES (?, ?);";
-    private static final String SELECT_GROUPE_BY_ID = "SELECT id, nom, nbre FROM groupe WHERE id = ?;";
+    private static final String SELECT_GROUPE_BY_ID = "SELECT * FROM groupe WHERE id = ?;";
     private static final String SELECT_ALL_GROUPES = "SELECT * FROM groupe;";
     private static final String DELETE_GROUPE_SQL = "DELETE FROM groupe WHERE id = ?;";
     private static final String UPDATE_GROUPE_SQL = "UPDATE groupe SET nom = ?, nbre = ? WHERE id = ?;";
@@ -48,9 +48,11 @@ public class GroupeDao {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
+
                 String nom = rs.getString("nom");
                 int nbre = rs.getInt("nbre");
                 groupe = new Groupe(id, nom, nbre);
+                System.out.println(groupe.getNom());
             }
         } catch (SQLException e) {
             printSQLException(e);

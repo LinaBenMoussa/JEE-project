@@ -102,9 +102,9 @@
                                                                             <td><%= matiere.getNom() %></td>
                                                                             <td><%= matiere.getDescription() %></td>
                                                                             <td>
-                                                                                <a href="../edit?id=<%= matiere.getId() %>">Edit</a>
+                                                                                <a href="../matiere/edit?id=<%= matiere.getId() %>">Edit</a>
                                                                                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                <a href="../delete?id=<%= matiere.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                                                                                                <a href="../matiere/delete?id=<%= matiere.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                                                                              </td>
                                                                         </tr>
                                                                         <%

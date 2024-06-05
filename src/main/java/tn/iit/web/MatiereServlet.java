@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/")
+@WebServlet("/matiere/*")
 public class MatiereServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private MatiereDao matiereDao;
@@ -31,7 +31,7 @@ public class MatiereServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getServletPath();
+        String action = request.getPathInfo();
 
         try {
             switch (action) {
@@ -64,12 +64,12 @@ public class MatiereServlet extends HttpServlet {
         List<Matiere> listMatiere = matiereDao.selectAllMatieres();
 
         getServletContext().setAttribute("listMatiere", listMatiere);
-        response.sendRedirect("admin/list_Matiere.jsp");
+        response.sendRedirect("../admin/list_Matiere.jsp");
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/Add_Matiere.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("../admin/Add_Matiere.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -79,7 +79,7 @@ public class MatiereServlet extends HttpServlet {
         Matiere existingMatiere = matiereDao.selectMatiere(id);
 
         getServletContext().setAttribute("matiere", existingMatiere);
-        response.sendRedirect("admin/Edit_Matiere.jsp");
+        response.sendRedirect("../admin/Edit_Matiere.jsp");
     }
 
     private void insertMatiere(HttpServletRequest request, HttpServletResponse response)

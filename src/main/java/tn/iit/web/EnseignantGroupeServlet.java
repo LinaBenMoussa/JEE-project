@@ -61,9 +61,10 @@ public class EnseignantGroupeServlet extends HttpServlet {  // Hérite de HttpSe
         int id = Integer.parseInt(request.getParameter("id"));
         List<Integer> listGroupes = EG.getGroupesByIdEnseignant(id);
         for(Integer i: listGroupes){System.out.println(i);}
-        // Utilisez request pour stocker l'attribut
+
+        request.getServletContext().setAttribute("idEnseignant",id);
         request.getServletContext().setAttribute("listGroupes", listGroupes);
-        System.out.println(id);
+
 
         response.sendRedirect("../groupes/list");
 

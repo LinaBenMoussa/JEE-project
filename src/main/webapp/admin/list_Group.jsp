@@ -74,11 +74,22 @@
                                 						<div class="card-header">
                                 							<h5 class="card-title">Groups</h5>
 <div class="container text-left">
+                                                              <%
+                                                              String idParam = (String)  request.getParameter("id");
+                                                              System.out.println("idParam"+idParam);
+                                                              int id = 0;
+                                                              if (idParam != null) {
+                                                                  try {
+                                                                      id = Integer.parseInt(idParam);
+                                                                  } catch (NumberFormatException e) {
 
-                                                            				<a href="Add_Group.jsp" class="btn btn-success">
+                                                                      e.printStackTrace();
+                                                                  }
+                                                              }
+                                                              System.out.println("id==" + id);
+                                                              %>	<a href="Add_Group.jsp?id=<%= id %>" class="btn btn-success">
                                                             					Ajouter Groupe</a>
                                                             			</div>
-
                                 						</div>
                                 						</div>
                                 						<div class="card-body">
@@ -86,12 +97,13 @@
                                 								<thead>
                                 									<tr>
                                 										<th style="width:40%;">Titre</th>
-                                										<th class="d-none d-md-table-cell" style="width:25%">number Etudant</th>
+                                										<th class="d-none d-md-table-cell" style="width:25%">number Etudiant</th>
                                 										<th style="width:15%;">Actions</th>
                                 									</tr>
                                 								</thead>
                                 								<tbody>
-                                									<% List<Groupe> listGroupe = (List<Groupe>) getServletContext().getAttribute("listGroupe");
+                                									<%
+                                									List<Groupe> listGroupe = (List<Groupe>) getServletContext().getAttribute("listGroupe");
                                                                       if (listGroupe != null) {
                                                                                     for (Groupe groupe : listGroupe) { %>
                                                                                                                                             <tr>

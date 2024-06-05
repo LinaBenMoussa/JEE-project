@@ -64,8 +64,20 @@
         						<div class="box-header with-border">
                                       <h4 class="box-title">Ajouter Group</h4>
         						</div>
+        						<%
+                                    String idParam = request.getParameter("id");
+                                    System.out.println("ajoutid"+idParam);
+                                    Integer id = null;
+                                    if (idParam != null) {
+                                        try {
+                                            id = Integer.parseInt(idParam);
+                                        } catch (NumberFormatException e) {
+                                            out.println("Invalid ID format");
+                                        }
+                                    }
+                                %>
         						<!-- /.box-header -->
-        						<form method="post" action="../groupes/insert"" class="form">
+        						<form method="post" action="../groupes/insert?id=<%=id%>" class="form">
         						<%
                                      String rs = request.getParameter("success");
                                        if ("true".equals(rs)) { %>
