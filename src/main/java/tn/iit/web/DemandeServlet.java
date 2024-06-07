@@ -50,6 +50,9 @@ public class DemandeServlet extends HttpServlet {
                 case "/update":
                     updateDemande(request, response);
                     break;
+                case "/list2":
+                    listDemande2(request, response);
+                    break;
                 default:
                     listDemande(request, response);
                     break;
@@ -83,6 +86,15 @@ public class DemandeServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new ServletException(e);
         }
+    }
+    private void listDemande2(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        int etat = Integer.parseInt(request.getSession().getAttribute("id").toString());
+        List<demande> listDemande = demandeDao.selectDemandes(etat);
+
+        request.getServletContext().setAttribute("listDemande",listDemande);
+
+        response.sendRedirect("../enseignant/listImpression.jsp");
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)

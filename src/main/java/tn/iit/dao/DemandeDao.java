@@ -18,6 +18,7 @@ public class DemandeDao {
     private static final String DELETE_DEMANDE_SQL = "DELETE FROM demande WHERE id = ?;";
     private static final String UPDATE_DEMANDE_SQL = "UPDATE demande SET nomGroupe = ?, nomMatiere = ?, nbreEtudiant = ?, document = ?, date = ?, etat = ? WHERE id = ?;";
     private static final String DELETE_EXPIRED_DEMANDES_SQL = "DELETE FROM demande WHERE date < CURDATE();";
+    private static final String SELECT_DEMANDES = "SELECT * FROM demande where etat =?;";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -97,15 +98,28 @@ public class DemandeDao {
         } catch (SQLException e) {
             printSQLException(e);
         }
+        return demandes;
+    }
+    public List<demande> selectDemandes(int etat2) {
+        List<demande> demandes = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DEMANDES)) {
+            preparedStatement.setInt(1,etat2);
+            ResultSet rs = preparedStatement.executeQuery();
 
-        // Affichage dans la console
-        System.out.println("Demandes récupérées depuis la base de données:");
-        for (demande d : demandes) {
-            System.out.println("ID: " + d.getId() + ", Nom Groupe: " + d.getNomGroupe() +
-                    ", Nom Matière: " + d.getNomMatiere() + ", Nombre Étudiants: " + d.getNbreEtudiant() +
-                    ", Document: " + d.getDocument() + ", Date: " + d.getDate() + ", État: " + d.getEtat());
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String nomGroupe = rs.getString("nomGroupe");
+                String nomMatiere = rs.getString("nomMatiere");
+                int nbreEtudiant = rs.getInt("nbreEtudiant");
+                String document = rs.getString("document");
+                Date date = rs.getDate("date");
+                int etat = rs.getInt("etat");
+                demandes.add(new demande(id, nomGroupe, nomMatiere, nbreEtudiant, document, date, etat));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
         }
-
         return demandes;
     }
 
