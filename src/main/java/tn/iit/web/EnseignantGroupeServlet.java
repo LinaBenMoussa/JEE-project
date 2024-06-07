@@ -48,6 +48,10 @@ public class EnseignantGroupeServlet extends HttpServlet {  // Hérite de HttpSe
                 // case "/update":
                 //     updateGroupe(request, response);
                 //     break;
+                case "/listGroupes2":
+                    listGroupes2(request, response);
+                    break;
+
                 default:
                     listGroupes(request, response);
                     break;
@@ -68,6 +72,30 @@ public class EnseignantGroupeServlet extends HttpServlet {  // Hérite de HttpSe
         request.getServletContext().setAttribute("listGroupes", listGroupes);
         response.sendRedirect("../groupes/list");
 
+    }
+    private void listGroupes2(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        String idParam = request.getParameter("id");
+        if (idParam == null || idParam.isEmpty()) {
+            throw new ServletException("ID is missing or empty");
+        }
+
+        int id;
+        try {
+            id = Integer.parseInt(idParam);
+        } catch (NumberFormatException e) {
+            throw new ServletException("Invalid ID format", e);
+        }
+
+        System.out.println("id dans EG" + id);
+        List<Integer> listGroupes = EG.getGroupesByIdEnseignant(id);
+        for (Integer i : listGroupes) {
+            System.out.println("i" + i);
+        }
+
+        request.getServletContext().setAttribute("idEnseignant", id);
+        request.getServletContext().setAttribute("listGroupes", listGroupes);
+        response.sendRedirect("../groupes/list3");
     }
 
 }

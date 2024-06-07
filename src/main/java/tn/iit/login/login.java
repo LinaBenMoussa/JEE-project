@@ -26,6 +26,8 @@ public class login extends HttpServlet {
             if (rs.next()) {
                 int role = rs.getInt("role");
                 HttpSession session = req.getSession(); // Create session
+                session.setAttribute("id", rs.getInt("id")); // Store user ID in session
+
                 session.setAttribute("user", uemail); // Store user email in session
                 session.setAttribute("role", role); // Store user role in session
 
