@@ -1,3 +1,6 @@
+<%@ page import="tn.iit.model.demande" %>
+
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,22 +14,13 @@
 	   <meta name="robots"
                   content="noindex">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
       <%@include file="../css/enseignantcss.jsp" %>
-
-
-
 </head>
 
    <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
 
    <div class="wrapper">
    	<div id="loader"></div>
-
-
-
-
  <%@include file="layout/header.jsp" %>
      <!-- Content Wrapper. Contains page content -->
      <div class="content-wrapper" style="margin:-12px">
@@ -75,56 +69,41 @@
                                 						</div>
                                 						<div class="card-body">
                                 							<table class="table table-striped">
-                                								<thead>
-                                									<tr>
-                                										<th style="width:40%;">Name</th>
-                                										<th class="d-none d-md-table-cell" style="width:25%">Date of Birth</th>
-                                										<th style="width:15%;">Actions</th>
-                                									</tr>
-                                								</thead>
-                                								<tbody>
-                                									<tr>
-                                										<td>Ashley Briggs</td>
-                                										<td class="d-none d-md-table-cell text-fade">Jun 21, 1961</td>
-                                										<td class="table-action min-w-100">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Carl Jenkins</td>
-                                										<td class="d-none d-md-table-cell text-fade">May 15, 1948</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Bertha Martin</td>
-                                										<td class="d-none d-md-table-cell text-fade">Sep 14, 1965</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Stacie Hall</td>
-                                										<td class="d-none d-md-table-cell text-fade">Apr 2, 1971</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                									<tr>
-                                										<td>Amanda Jones</td>
-                                										<td class="d-none d-md-table-cell text-fade">Oct 12, 1966</td>
-                                										<td class="table-action">
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="edit-2"></i></a>
-                                											<a href="#" class="text-fade hover-primary"><i class="align-middle" data-feather="trash"></i></a>
-                                										</td>
-                                									</tr>
-                                								</tbody>
-                                							</table>
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th style="width:20%;">ID</th>
+                                                                            <th style="width:20%;">Nom Groupe</th>
+                                                                            <th style="width:20%;">Nom Matière</th>
+                                                                            <th style="width:15%;">Nombre Étudiants</th>
+                                                                            <th style="width:25%;">Document</th>
+                                                                            <th style="width:15%;">Date</th>
+
+                                                                            <th style="width:15%;">Actions</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <%
+                                                                            List<demande> listDemandes = (List<demande>) request.getAttribute("listDemande");
+                                                                            if (listDemandes != null) {
+                                                                                for (demande d : listDemandes) {
+                                                                        %>
+                                                                        <tr>
+                                                                            <td><%= d.getId() %></td>
+                                                                            <td><%= d.getNomGroupe() %></td>
+                                                                            <td><%= d.getNomMatiere() %></td>
+                                                                            <td><%= d.getNbreEtudiant() %></td>
+                                                                            <td><a href="<%= request.getContextPath() %>/uploads/<%= d.getDocument() %>" download><%= d.getDocument() %></a></td>
+                                                                            <td><%= d.getDate() %></td>
+<td><a href="../demandes/delete?id=<%= d.getId() %>" onclick="return confirm('Are you sure you want to delete this item?');">Imprimer</a></td>
+
+                                                                        </tr>
+                                                                        <%
+                                                                                }
+                                                                            }
+                                                                        %>
+                                                                    </tbody>
+                                                                </table>
+
 
                                 					</div>
                                 				</div>

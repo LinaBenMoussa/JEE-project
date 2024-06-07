@@ -95,12 +95,9 @@
                                 								<tbody>
                                 									<% List<User> listusers = (List<User>) getServletContext().getAttribute("listUser");
                                                                 if (listusers != null) {
-                                                                                                                                                    for (User enseignant : listusers) { %>
-                                                                                                                                                                                                            <tr>
-       <td><%= enseignant.getNom() %></td>
-                                                                                                                                                                                                                <td><%= enseignant.getPrenom() %></td>
-
-                                                                                                                                                                                                                <td><%= enseignant.getEmail() %></td>
+                                                                     <td><%= enseignant.getNom() %></td>
+                                                                    <td><%= enseignant.getPrenom() %></td>
+                                                                   <td><%= enseignant.getEmail() %></td>
                                                                                                                                                                                                                 <td><%= enseignant.getPw() %></td>
                                                                                                                                                                                                                 <td><%= enseignant.getDateNaissance() %></td>
                                                                                                                                                                                                                 <td><%= enseignant.getTelephone() %></td>

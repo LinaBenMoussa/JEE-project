@@ -1,7 +1,5 @@
 package tn.iit.model;
-
 import java.util.Date;
-
 public class demande {
     private int id;
     private String nomGroupe;
@@ -10,7 +8,6 @@ public class demande {
     private String Document;
     private Date date;
     private int etat;
-
     public demande(int id, String nomGroupe, String nomMatiere, int nbreEtudiant, String document, Date date, int etat) {
         this.id = id;
         this.nomGroupe = nomGroupe;

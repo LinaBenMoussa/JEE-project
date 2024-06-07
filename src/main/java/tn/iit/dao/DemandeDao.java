@@ -10,13 +10,14 @@ public class DemandeDao {
 
     private String jdbcURL = "jdbc:mysql://localhost:3306/tiragebd?useSSL=false";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "password";
+    private String jdbcPassword = "";
 
     private static final String INSERT_DEMANDE_SQL = "INSERT INTO demande (nomGroupe, nomMatiere, nbreEtudiant, document, date, etat) VALUES (?, ?, ?, ?, ?, ?);";
     private static final String SELECT_DEMANDE_BY_ID = "SELECT * FROM demande WHERE id = ?;";
     private static final String SELECT_ALL_DEMANDES = "SELECT * FROM demande;";
     private static final String DELETE_DEMANDE_SQL = "DELETE FROM demande WHERE id = ?;";
     private static final String UPDATE_DEMANDE_SQL = "UPDATE demande SET nomGroupe = ?, nomMatiere = ?, nbreEtudiant = ?, document = ?, date = ?, etat = ? WHERE id = ?;";
+    private static final String DELETE_EXPIRED_DEMANDES_SQL = "DELETE FROM demande WHERE date < CURDATE();";
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -96,8 +97,18 @@ public class DemandeDao {
         } catch (SQLException e) {
             printSQLException(e);
         }
+
+        // Affichage dans la console
+        System.out.println("Demandes récupérées depuis la base de données:");
+        for (demande d : demandes) {
+            System.out.println("ID: " + d.getId() + ", Nom Groupe: " + d.getNomGroupe() +
+                    ", Nom Matière: " + d.getNomMatiere() + ", Nombre Étudiants: " + d.getNbreEtudiant() +
+                    ", Document: " + d.getDocument() + ", Date: " + d.getDate() + ", État: " + d.getEtat());
+        }
+
         return demandes;
     }
+
 
     public boolean deleteDemande(int id) throws SQLException {
         boolean rowDeleted;
@@ -141,4 +152,11 @@ public class DemandeDao {
             }
         }
     }
+    public void deleteExpiredDemandes() throws SQLException {
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_EXPIRED_DEMANDES_SQL)) {
+            preparedStatement.executeUpdate();
+        }
+    }
+
 }

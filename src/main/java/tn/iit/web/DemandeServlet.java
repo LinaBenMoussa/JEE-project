@@ -60,11 +60,29 @@ public class DemandeServlet extends HttpServlet {
     }
 
     private void listDemande(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
-        List<demande> listDemande = demandeDao.selectAllDemandes();
-        request.setAttribute("listDemande", listDemande);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/admin/list_Demande.jsp");
-        dispatcher.forward(request, response);
+            throws ServletException, IOException {
+        try {
+           demandeDao.deleteExpiredDemandes();  // Supprimer les demandes expirées
+            List<demande> listDemande = demandeDao.selectAllDemandes();
+            request.setAttribute("listDemande", listDemande);
+
+            // Log the list of demands in console
+            for (demande d : listDemande) {
+                System.out.println("ID: " + d.getId());
+                System.out.println("Nom Groupe: " + d.getNomGroupe());
+                System.out.println("Nom Matière: " + d.getNomMatiere());
+                System.out.println("Nombre Étudiants: " + d.getNbreEtudiant());
+                System.out.println("Document: " + d.getDocument());
+                System.out.println("Date: " + d.getDate());
+                System.out.println("État: " + d.getEtat());
+                System.out.println("-------------------------------------");
+            }
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/agent/listImpression.jsp");
+            dispatcher.forward(request, response);
+        } catch (SQLException e) {
+            throw new ServletException(e);
+        }
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
