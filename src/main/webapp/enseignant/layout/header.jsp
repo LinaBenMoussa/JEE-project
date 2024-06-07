@@ -174,11 +174,12 @@
     				  <a href="../enseignant/Dashboard.jsp"><i data-feather="home"></i><span>Dashboard</span></a>
     				</li>
     				<li>
-    				  <a href="../enseignant/Add_Impression.jsp"><i data-feather="printer"></i><span>Add Impression</span></a>
-    				</li>
-    				<li>
-    				  <a href="../enseignant/listImpression.jsp"><i data-feather="printer"></i><span>Print list</span></a>
-    				</li>
+                        				  <a href="../EG/listGroupes2?id=<%= session.getAttribute("id") %>">
+                                           <i data-feather="printer"></i><span>Add Impression</span></a>
+                        				</li>
+                        				<li>
+                        				  <a href="<%=request.getContextPath()%>/demandes/list2"><i data-feather="printer"></i><span>Print list</span></a>
+                        				</li>
     				<form action="<%=request.getContextPath()%>/logout" method="post">
                                                                         <button type="submit" class="btn btn-danger">Logout</button>
                                                                     </form>

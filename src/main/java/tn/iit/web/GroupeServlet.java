@@ -11,7 +11,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import tn.iit.dao.MatiereDao;
+import tn.iit.model.Matiere;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,8 +23,10 @@ public class GroupeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private GroupeDao groupeDao;
     private EnseignantGroupeDao EG;
+    private MatiereDao matiereDao;
     public void init() {
         groupeDao = new GroupeDao();
+        matiereDao=new MatiereDao();
         EG = new EnseignantGroupeDao();
     }
 
@@ -54,6 +57,10 @@ public class GroupeServlet extends HttpServlet {
                     break;
                 case "/list2":
                     listGroupe2(request, response);
+                    break;
+
+                case "/list3":
+                    listGroupeByEnseignant(request, response);
                     break;
                 default:
                     listGroupe(request, response);
@@ -101,7 +108,36 @@ public class GroupeServlet extends HttpServlet {
         }
 
     }
+    private void listGroupeByEnseignant(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        Integer id = (Integer) getServletContext().getAttribute("idEnseignant");
+        System.out.println("dans servlet id=" + id);
+        List<Groupe> listGroupe = new ArrayList<>();
+        List<Integer> listId = (List<Integer>) getServletContext().getAttribute("listGroupes");
+        List<Matiere> listMatiere=matiereDao.selectAllMatieres();
+        if (listId != null) {
+            for (Integer g : listId) {
+                System.out.println(g);
+            }
+            if (!listId.isEmpty()) {
+                for (Integer i : listId) {
+                    Groupe groupe = groupeDao.selectGroupe(i);
+                    if (groupe != null) {
+                        listGroupe.add(groupe);
+                    } else {
+                        System.out.println("Groupe avec ID " + i + " est null");
+                    }
+                }
+                for (Groupe g : listGroupe) {
+                    System.out.println(g.getNom());
+                }
+                getServletContext().setAttribute("listMatiere", listMatiere);
+                getServletContext().setAttribute("listGroupe", listGroupe);
+                response.sendRedirect("../enseignant/Add_Impression.jsp");
+            }
+        }
 
+    }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
