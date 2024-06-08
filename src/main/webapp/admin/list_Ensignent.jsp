@@ -75,7 +75,7 @@
 <div class="container text-left">
 
                                                             				<a href="Add_Ensignent.jsp" class="btn btn-success">
-                                                            					Ajouter Matiére</a>
+                                                            					Ajouter Enseignant</a>
                                                             			</div>
                                 						</div>
                                 						<div class="card-body">
@@ -95,9 +95,12 @@
                                 								<tbody>
                                 									<% List<User> listusers = (List<User>) getServletContext().getAttribute("listUser");
                                                                 if (listusers != null) {
-                                                                     <td><%= enseignant.getNom() %></td>
-                                                                    <td><%= enseignant.getPrenom() %></td>
-                                                                   <td><%= enseignant.getEmail() %></td>
+                                                                                                                                                    for (User enseignant : listusers) { %>
+                                                                                                                                                                                                            <tr>
+       <td><%= enseignant.getNom() %></td>
+                                                                                                                                                                                                                <td><%= enseignant.getPrenom() %></td>
+
+                                                                                                                                                                                                                <td><%= enseignant.getEmail() %></td>
                                                                                                                                                                                                                 <td><%= enseignant.getPw() %></td>
                                                                                                                                                                                                                 <td><%= enseignant.getDateNaissance() %></td>
                                                                                                                                                                                                                 <td><%= enseignant.getTelephone() %></td>

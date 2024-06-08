@@ -63,7 +63,7 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">Ajouter Ensignent</h4>
+        						  <h4 class="box-title">Ajouter Agent</h4>
         						</div>
         						<!-- /.box-header -->
 
@@ -84,7 +84,7 @@
 
         							<div class="box-body">
 
-        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Ensignent</h4>
+        								<h4 class="box-title text-primary mb-0 mt-20"><i class="ti-save me-15"></i> Agent</h4>
         								<hr class="my-15">
 
 

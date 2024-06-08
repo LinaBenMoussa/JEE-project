@@ -170,9 +170,7 @@
     		  <div class="multinav-scroll" style="height: 97%;">
     			  <!-- sidebar menu-->
     			  <ul class="sidebar-menu" data-widget="tree">
-    				<li>
-    				  <a href="../agent/Dashboard.jsp"><i data-feather="home"></i><span>Dashboard</span></a>
-    				</li>
+
 
     				<li>
     				  <a href="<%=request.getContextPath()%>/demandes/list"><i data-feather="printer"></i><span>Print list</span></a>

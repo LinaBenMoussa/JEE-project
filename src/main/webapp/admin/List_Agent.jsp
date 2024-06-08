@@ -65,7 +65,7 @@
 
         					  <div class="box">
         						<div class="box-header with-border">
-        						  <h4 class="box-title">liste des Ensignentes</h4>
+        						  <h4 class="box-title">liste des Agents</h4>
         						</div>
         						<!-- /.box-header -->
 

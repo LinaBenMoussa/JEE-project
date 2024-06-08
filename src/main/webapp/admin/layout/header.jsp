@@ -170,40 +170,13 @@
  		  <div class="multinav-scroll" style="height: 97%;">
  			  <!-- sidebar menu-->
  			  <ul class="sidebar-menu" data-widget="tree">
- 				<li>
- 				  <a href="../admin/Dashboard.jsp"><i data-feather="home"></i><span>Dashboard</span></a>
- 				</li>
-
- 				<li >
- 				  	  <a href="../admin/Add_Group.jsp">
- 				  	  <i data-feather="edit"></i>
- 					<span>Ajouter Group</span>
-
- 				  </a>
- 				</li>
-                <li >
- 				  <a href="../admin/Add_Ensignent.jsp">
- 					<i data-feather="edit"></i>
- 					<span>Ajouter Ensignent</span>
-
- 				  </a>
- 				</li>
-
- 	  <li >
-     				  <a href="../admin/Add_Agent.jsp">
-     					<i data-feather="edit"></i>
-     					<span>Ajouter Agent</span>
-
-     				  </a>
-     				</li>
- 				<li >
-                 				    <a href="../admin/Add_Matiere.jsp">
-                 					<i data-feather="edit"></i>
-                 					<span>Ajouter Matiere</span>
-                 					 </a>
 
 
-                 				</li>
+
+
+
+
+
  				<li >
  				  <a href="../groupes/list2">
  					<i data-feather="grid"></i>

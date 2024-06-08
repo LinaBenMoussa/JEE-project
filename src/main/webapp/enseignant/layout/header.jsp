@@ -170,11 +170,9 @@
     		  <div class="multinav-scroll" style="height: 97%;">
     			  <!-- sidebar menu-->
     			  <ul class="sidebar-menu" data-widget="tree">
+
     				<li>
-    				  <a href="../enseignant/Dashboard.jsp"><i data-feather="home"></i><span>Dashboard</span></a>
-    				</li>
-    				<li>
-                        				  <a href="../EG/listGroupes2?id=<%= session.getAttribute("id") %>">
+                        				  <a href="<%=request.getContextPath()%>/EG/listGroupes2?id=<%= session.getAttribute("id") %>">
                                            <i data-feather="printer"></i><span>Add Impression</span></a>
                         				</li>
                         				<li>

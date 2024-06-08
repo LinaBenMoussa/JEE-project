@@ -65,7 +65,7 @@
         						  <h4 class="box-title">Ajouter Matiere</h4>
         						</div>
         						<!-- /.box-header -->
-        						<form method="post" action="../Add_Matiere" class="form">
+        						<form method="post" action="../matiere/insert" class="form">
 
         							<div class="box-body">
 
